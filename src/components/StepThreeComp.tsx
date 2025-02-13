@@ -3,14 +3,14 @@ import JsBarcode from "jsbarcode";
 import { Button } from "./ui/button";
 import ProgressBar from "./ProgressBar";
 import { StepThreeTypes } from "@/types";
-import card from "../assets/bg.png";
+// import card from "../assets/bg.png";
 import html2canvas from "html2canvas";
 
 function StepThreeComp(props: StepThreeTypes) {
   const {
     stepCount,
     progressCount,
-    imgUrl,
+    // imgUrl,
     name,
     email,
     ticketSelected,
@@ -54,14 +54,14 @@ function StepThreeComp(props: StepThreeTypes) {
     }
   };
 
-  const ticketBg = {
-    backgroundImage: `url(${card})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    width: "70%",
-    padding: "30px"
-  };
+  // const ticketBg = {
+  //   backgroundImage: `url(${card})`,
+  //   backgroundRepeat: "no-repeat",
+  //   backgroundSize: "cover",
+  //   backgroundPosition: "center",
+  //   width: "70%",
+  //   padding: "30px"
+  // };
 
   return (
     <div>
