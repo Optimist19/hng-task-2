@@ -1,33 +1,19 @@
-export interface TicketType {
-  access: string;
-  remains: string;
-  amount: string;
-}
-
-export type Inputs = {
-  optionSelected: string
-  
-}
-export type Inputs2 = {
-  name: string;
-  email: string;
-  special?: string;
-}
+import { TicketType } from "./types";
 
 export const ticket: TicketType[] = [
   {
     access: "regular access",
-    remains: "20 left!",
+    remains: "20/52",
     amount: "Free"
   },
   {
     access: "vip access",
-    remains: "20 left!",
+    remains: "20/52",
     amount: "$50"
   },
   {
     access: "vvip access",
-    remains: "20 left!",
+    remains: "20/52",
     amount: "$150"
   }
 ];
