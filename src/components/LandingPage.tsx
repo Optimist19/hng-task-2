@@ -7,7 +7,7 @@ import StepTwoComp from "./StepTwoComp";
 import StepThreeComp from "./StepThreeComp";
 import { Inputs, TicketType } from "@/types";
 import { useForm } from "react-hook-form";
-import Frame from "./Frame";
+// import Frame from "./Frame";
 
 function LandingPage() {
   const { setValue } = useForm<Inputs>();
