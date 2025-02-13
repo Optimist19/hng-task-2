@@ -1,5 +1,5 @@
-import { useRef, useEffect } from "react";
-import JsBarcode from "jsbarcode";
+import { useEffect } from "react";
+// import JsBarcode from "jsbarcode";
 import { Button } from "./ui/button";
 import ProgressBar from "./ProgressBar";
 import { StepThreeTypes } from "@/types";
@@ -20,7 +20,7 @@ function StepThreeComp(props: StepThreeTypes) {
   } = props;
 
   // Create a ref for the barcode SVG
-  const barcodeRef = useRef(null);
+  // const barcodeRef = useRef(null);
   const generateRandomNumbers = () => {
     let randomNumbers = "";
     for (let i = 0; i < 12; i++) {
@@ -32,14 +32,14 @@ function StepThreeComp(props: StepThreeTypes) {
 
   // Initialize the barcode when the component mounts
   useEffect(() => {
-    const randomNumbers = generateRandomNumbers();
-
-    if (barcodeRef.current) {
-      JsBarcode(barcodeRef.current, randomNumbers, {
-        format: "CODE128",
-        displayValue: true
-      });
-    }
+    // const randomNumbers = generateRandomNumbers();
+    generateRandomNumbers();
+    // if (barcodeRef.current) {
+    //   JsBarcode(barcodeRef.current, randomNumbers, {
+    //     format: "CODE128",
+    //     displayValue: true
+    //   });
+    // }
   }, []);
 
   const handleDownload = () => {
