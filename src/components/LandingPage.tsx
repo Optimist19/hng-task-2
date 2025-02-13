@@ -7,7 +7,6 @@ import StepTwoComp from "./StepTwoComp";
 import StepThreeComp from "./StepThreeComp";
 import { Inputs, TicketType } from "@/types";
 import { useForm } from "react-hook-form";
-// import Frame from "./Frame";
 
 function LandingPage() {
   const { setValue } = useForm<Inputs>();
@@ -97,18 +96,18 @@ function LandingPage() {
   return (
     <>
       {closeLandingPage && (
-          <div className="bg-blue-400 h-[100vh] text-white flex flex-col justify-center items-center md:pl-[10vw] md:pt-[10vh] md:block">
-            <p className="text-[32px] md:text-[55px]">Ticketing Booking App</p>
-            <p className="text-[42px] md:text-[132px] tracking-[0.3vw] font-pochaevsk md:leading-[22vh] font-thin">
-              Dev Practice
-            </p>
-            <p className="text-[42px] md:text-[132px] tracking-[0.3vw] font-pochaevsk md:leading-[22vh] font-thin">
-              Designs File
-            </p>
-            <div>
-              <Button onClick={getStartedBtnFtn}>Get Started</Button>
-            </div>
+        <div className="bg-blue-400 h-[100vh] text-white flex flex-col justify-center items-center md:pl-[10vw] md:pt-[10vh] md:block">
+          <p className="text-[32px] md:text-[55px]">Ticketing Booking App</p>
+          <p className="text-[42px] md:text-[132px] tracking-[0.3vw] font-pochaevsk md:leading-[22vh] font-thin">
+            Dev Practice
+          </p>
+          <p className="text-[42px] md:text-[132px] tracking-[0.3vw] font-pochaevsk md:leading-[22vh] font-thin">
+            Designs File
+          </p>
+          <div>
+            <Button onClick={getStartedBtnFtn}>Get Started</Button>
           </div>
+        </div>
       )}
 
       {showSteps && (
@@ -146,8 +145,8 @@ function LandingPage() {
               cancelBtnFtn={cancelBtnFtn}
               ticketSelected={ticketSelected}
               name={name}
-email={email}
-specialInput={specialInput}
+              email={email}
+              specialInput={specialInput}
             />
           )}
 
@@ -167,9 +166,6 @@ specialInput={specialInput}
           )}
         </div>
       )}
-
-
-      {/* <Frame /> */}
     </>
   );
 }

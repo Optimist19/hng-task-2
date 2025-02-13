@@ -177,8 +177,8 @@ function StepTwoComp(props: StepTwoTypes) {
                 <label htmlFor="email" className="">
                   Enter your email *
                 </label>
-                <div className="flex items-center ring-1 ring-[#0E464F] rounded-md px-2 my-1">
-                  <div>
+                <div className="flex items-center ring-1 ring-[#0E464F] rounded-md px-2 py-1 my-1">
+                  <div className="pr-2">
                     <img src={message} alt="message-icon" />
                   </div>
                   <input

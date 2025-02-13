@@ -44,18 +44,18 @@ function StepOneComp(props: StepTwoFtnType) {
       JSON.stringify({ ...data, ...ticketSelected })
     );
     // console.log(data,"datata")
-    
+
     console.log(data);
     setNoTicket(Number(data.optionSelected));
-    
-    console.log(ticketSelected,"ticketSelected")
+
+    console.log(ticketSelected, "ticketSelected");
 
     // if (Object.keys(ticketSelected).length === 0) {
     //   setNoTicketSelectedErroMessage(true);
     //   return;
     // }
 
-    if(ticketSelected.access === ""){
+    if (ticketSelected.access === "") {
       setNoTicketSelectedErroMessage(true);
       return;
     }
@@ -190,9 +190,9 @@ function StepOneComp(props: StepTwoFtnType) {
               </div>
 
               {/* Buttons */}
-              <div className="w-full flex flex-col gap-3 md:flex-row md:items-center md:justify-between rounded-full">
+              <div className="w-full flex flex-col gap-3 md:flex-row md:items-center md:justify-between rounded-full ">
                 <Button
-                  className="md:w-[290px] bg-[#041E23] ring-1 ring-[#0E464F] text-[#24A0B5] hover:bg-[#24A0B5] hover:text-white ring-1 ring-[#24A0B5]"
+                  className="md:w-[290px] bg-[#041E23] text-[#24A0B5] hover:bg-[#24A0B5] hover:text-white ring-1 ring-[#24A0B5] order-1"
                   onClick={cancelBtnFtn}
                   aria-label="Cancel selection">
                   Cancel
@@ -200,7 +200,7 @@ function StepOneComp(props: StepTwoFtnType) {
 
                 <Button
                   type="submit"
-                  className="md:w-[290px] bg-[#041E23]  ring-1 ring-[#24A0B5] hover:bg-[#24A0B5] text-white"
+                  className="md:w-[290px] bg-[#041E23]  ring-1 ring-[#24A0B5] hover:bg-[#24A0B5] text-white md:order-1"
                   aria-label="Proceed to next step">
                   Next
                 </Button>
