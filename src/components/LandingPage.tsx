@@ -24,25 +24,17 @@ function LandingPage() {
     remains: "",
     amount: ""
   });
-  const [noTicket, setNoTicket] = useState<number>(0);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [specialInput, setSpecialInput] = useState("");
+
+
+
 
   useEffect(() => {
-    // const storedData = localStorage.getItem("myData");
     if (stepOne === true) {
       setProgressCount(0);
       setStepCount(1);
     }
 
-    // if (storedData) {
-    //   const parsedData = JSON.parse(storedData);
-
-    //   // ✅ Populate form fields
-    //   setValue("optionSelected", parsedData.noTicket.toString());
-    // }
-  }, [stepOne, setValue, setNoTicket]); // Only re-run effect when stepOne changes
+  }, [stepOne, setValue]); 
 
   function getStartedBtnFtn() {
     setCloseLandingPage(false);
@@ -118,7 +110,6 @@ function LandingPage() {
           {stepOne && (
             <StepOneComp
               goToStepTwoFtn={goToStepTwoFtn}
-              setNoTicket={setNoTicket}
               stepCount={stepCount}
               setStepCount={setStepCount}
               setProgressCount={setProgressCount}
@@ -132,9 +123,6 @@ function LandingPage() {
           {/* step 2 */}
           {stepTwo && (
             <StepTwoComp
-              setName={setName}
-              setEmail={setEmail}
-              setSpecialInput={setSpecialInput}
               setStepCount={setStepCount}
               setProgressCount={setProgressCount}
               goToStepThreeFtn={goToStepThreeFtn}
@@ -144,9 +132,7 @@ function LandingPage() {
               setImgURL={setImgURL}
               cancelBtnFtn={cancelBtnFtn}
               ticketSelected={ticketSelected}
-              name={name}
-              email={email}
-              specialInput={specialInput}
+
             />
           )}
 
@@ -155,12 +141,6 @@ function LandingPage() {
             <StepThreeComp
               stepCount={stepCount}
               progressCount={progressCount}
-              imgUrl={imgUrl}
-              name={name}
-              email={email}
-              ticketSelected={ticketSelected}
-              noTicket={noTicket}
-              specialInput={specialInput}
               backToStepOne={backToStepOne}
             />
           )}

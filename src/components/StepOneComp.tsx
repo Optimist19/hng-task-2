@@ -4,13 +4,12 @@ import ProgressBar from "./ProgressBar";
 import lightBgImg from "../assets/lightBgImg.png";
 import { Button } from "./ui/button";
 import { ticket } from "@/data";
-import { Inputs, StepTwoFtnType } from "@/types";
+import { Inputs, StepOneType } from "@/types";
 import { ToastContainer, toast } from "react-toastify";
 
-function StepOneComp(props: StepTwoFtnType) {
+function StepOneComp(props: StepOneType) {
   const {
     goToStepTwoFtn,
-    setNoTicket,
     stepCount,
     setStepCount,
     setProgressCount,
@@ -40,14 +39,12 @@ function StepOneComp(props: StepTwoFtnType) {
 
   const onSubmitStepOne: SubmitHandler<Inputs> = (data) => {
     localStorage.setItem(
-      "barcode",
-      JSON.stringify({ ...data, ...ticketSelected })
+      "userInputs",
+      JSON.stringify([{ ...data }, { ...ticketSelected }])
     );
     // console.log(data,"datata")
 
     console.log(data);
-    setNoTicket(Number(data.optionSelected));
-
     console.log(ticketSelected, "ticketSelected");
 
     // if (Object.keys(ticketSelected).length === 0) {

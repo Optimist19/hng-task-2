@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "./ui/button";
 import cloud from "../assets/icon.svg";
 import message from "../assets/message.svg";
@@ -14,9 +14,7 @@ import {
 function StepTwoComp(props: StepTwoTypes) {
   const [isLoading, setIsLoading] = useState(false);
   const {
-    setName,
-    setEmail,
-    setSpecialInput,
+    ticketSelected,
     setStepCount,
     setProgressCount,
     goToStepThreeFtn,
@@ -24,44 +22,34 @@ function StepTwoComp(props: StepTwoTypes) {
     progressCount,
     imgUrl,
     setImgURL,
-    cancelBtnFtn,
-    ticketSelected,
-    name,
-    email,
-    specialInput
+    cancelBtnFtn
   } = props;
 
   const {
-    setValue,
     register: register2,
     handleSubmit: handleSubmit2,
     formState: { errors: errors2 }
   } = useForm<Inputs2>();
 
-  useEffect(() => {
-    const savedData = localStorage.getItem("barcode");
-    if (savedData) {
-      const parsedData = JSON.parse(savedData);
-      setValue("name", parsedData.name || "");
-      setValue("email", parsedData.email || "");
-      setValue("special", parsedData.email || "");
-    }
-  }, [setValue]);
-
   const onSubmitStepTwo: SubmitHandler<Inputs2> = (data) => {
-    localStorage.setItem(
-      "barcode",
-      JSON.stringify({ ...data, imgUrl, name, email, specialInput })
-    );
-    // console.log(data,"datata")
-    // console.log(ticketSelected,"ticketSelected")
-    console.log(data);
-    setName(data.name);
-    setEmail(data.email);
-    setSpecialInput(data?.special || "Nil");
+    console.log(data, "datata"); 
+
+    const storedData = JSON.parse(localStorage.getItem("userInputs") || "[]");
+
+    const updatedData = [
+      ...storedData,
+      {
+        ...data,
+        imgUrl,
+        name: data.name, 
+        email: data.email
+      }
+    ];
+
+    localStorage.setItem("userInputs", JSON.stringify(updatedData));
+
 
     setStepCount(stepCount + 1);
-
     setProgressCount(progressCount + 50);
 
     goToStepThreeFtn();
@@ -114,28 +102,33 @@ function StepTwoComp(props: StepTwoTypes) {
                   <div className="w-[240px] h-[30vh] bg-[#0E464F] text-[#FAFAFA] rounded-3xl">
                     <div className="flex flex-col items-center justify-center h-[100%] gap-3 relative">
                       <label htmlFor="input">
-                      <div>
-                        {isLoading ? (
-                          "Uploading..."
-                        ) : imgUrl ? (
-                          <div className="rounded-2xl w-[12vw]">
-                            <img src={imgUrl} alt="Uploaded" className="w-[100%] rounded-2xl"/>
-                          </div>
-                        ) : (
-                          <div>
-                            <div className="flex justify-center py-2">
-                              <img src={cloud} alt="upload" />
+                        <div>
+                          {isLoading ? (
+                            "Uploading..."
+                          ) : imgUrl ? (
+                            <div className="rounded-2xl w-[12vw]">
+                              <img
+                                src={imgUrl}
+                                alt="Uploaded"
+                                className="w-[100%] rounded-2xl"
+                              />
                             </div>
-                            <p className="text-center">
-                              Drag & drop or click to <br />
-                              upload
-                            </p>
-                          </div>
-                        )}
-                      </div>
+                          ) : (
+                            <div>
+                              <div className="flex justify-center py-2">
+                                <img src={cloud} alt="upload" />
+                              </div>
+                              <p className="text-center">
+                                Drag & drop or click to <br />
+                                upload
+                              </p>
+                            </div>
+                          )}
+                        </div>
                       </label>
                       <div className="absolute bottom-5 left-5">
-                        <input id="input"
+                        <input
+                          id="input"
                           type="file"
                           onChange={handleFileUpload}
                           className="file-input"

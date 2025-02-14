@@ -16,13 +16,7 @@ export type Inputs2 = {
 export interface StepThreeTypes {
   stepCount: number;
   progressCount: number;
-  imgUrl: string;
-  name: string;
-  email: string;
-  ticketSelected: TiecketSelectedTyepes;
-  noTicket: number;
-  specialInput: string;
-  backToStepOne: ()=>void;
+  backToStepOne: () => void;
 }
 
 export interface TiecketSelectedTyepes {
@@ -32,9 +26,6 @@ export interface TiecketSelectedTyepes {
 }
 
 export interface StepTwoTypes {
-  setName: (data: string) => void;
-  setEmail: (data: string) => void;
-  setSpecialInput: (data: string) => void;
   setStepCount: (data: number) => void;
   setProgressCount: (data: number) => void;
   goToStepThreeFtn: () => void;
@@ -44,15 +35,10 @@ export interface StepTwoTypes {
   setImgURL: (data: string) => void;
   cancelBtnFtn: () => void;
   ticketSelected: TicketType;
-  name: string;
-  email: string;
-  specialInput: string;
 }
 
-
-export interface StepTwoFtnType {
+export interface StepOneType {
   goToStepTwoFtn: () => void;
-  setNoTicket: (data: number) => void;
   setStepCount: (data: number) => void;
   stepCount: number;
   setProgressCount: (data: number) => void;
@@ -60,7 +46,6 @@ export interface StepTwoFtnType {
   ticketSelected: TicketType;
   progressCount: number;
   cancelBtnFtn: () => void;
-
 }
 
 export interface UploadedImageResponse {
